@@ -1,24 +1,17 @@
 import mongoose from "mongoose"; 
 import express,{json} from 'express';
-// import { route } from './Routes/routes.js';
+import {route} from "./Routes/routes.js";
 import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 const app=express();
 
 app.use(
-    cors({ 
-      origin: "http://localhost:3000",
-    })
+    cors()
   );
-app.use(json());
-// app.use('/',route)
-mongoose.connect('mongodb://localhost:27017/Oncolabs', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.error("MongoDB Connection Error:", err));
+  app.use(express.json());
+  app.use('/',route)
+mongoose.connect('mongodb://localhost:27017/Oncolabs');
 
 const port =process.env.port;
 app.listen(port,()=>{

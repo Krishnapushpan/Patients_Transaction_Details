@@ -1,7 +1,6 @@
 import { json, Router } from "express";
-import billing from "../models/billing";
+import BillTransaction from "../models/billing.js";
 const route=Router();
-import BillTransaction from "../models/BillTransaction";  // Import the model
 
 route.post('/billtransaction', async (req, res) => {
   try {
@@ -46,3 +45,38 @@ route.post('/billtransaction', async (req, res) => {
     return res.status(500).json({ message: "Internal server error" });
   }
 });
+// Fetch all bill transactions
+route.get("/transactionsdetails", async (req, res) => {
+  try {
+    const transactions = await BillTransaction.find();
+    if (!transactions) {
+      return res.status(404).json({ message: "No transactions found" });
+    }
+    res.json(transactions);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error fetching transactions" });
+  }
+});
+route.get("/search", async (req, res) => {
+  try {
+    const { receipt_number } = req.query;
+
+    if (!receipt_number) {
+      return res.status(400).json({ error: "Receipt number is required" });
+    }
+
+    const transactions = await BillTransaction.find({ receipt_number });
+
+    if (transactions.length === 0) {
+      return res.status(404).json({ error: "No transactions found for this receipt number" });
+    }
+
+    res.status(200).json(transactions);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+export {route};
