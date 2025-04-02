@@ -46,8 +46,7 @@ This project is a Billing Transaction Management System designed to handle billi
 
 ### 1. Clone the repository:
    ```bash
-   git clone git@github.com:Krishnapushpan/Student_Management.git
-   cd React-Native
+   git clone git@github.com:Krishnapushpan/Patients_Transaction_Details.git
    ```
 
 ### 💻 Backend Setup
