@@ -11,11 +11,9 @@ This project is a Billing Transaction Management System designed to handle billi
 
 - Tailwind CSS UI: Provides a clean and responsive user interface.
 
-- Role-Based Access: Only admin users can add transactions.
-
 # 🛠️ Technologies Used
 
-- Frontend (React Native)
+- Frontend 
 
 - React
 
@@ -33,7 +31,7 @@ This project is a Billing Transaction Management System designed to handle billi
 
 # ⚙️ How It Works
 
-- Transaction Form: Admin enters transaction details via a form (React-based UI).
+- Transaction Form:  enters transaction details via a form (React-based UI).
 
 - Data Storage: The transaction data is sent to the backend and stored in MongoDB.
 
