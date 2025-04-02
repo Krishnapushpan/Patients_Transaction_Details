@@ -35,7 +35,7 @@ This project is a Billing Transaction Management System designed to handle billi
 
 - Data Storage: The transaction data is sent to the backend and stored in MongoDB.
 
-# Success Response: Upon successful transaction entry, the system returns a confirmation message.
+### Success Response: Upon successful transaction entry, the system returns a confirmation message.
 
 ## 🚀 Installation and Setup
 
@@ -61,5 +61,5 @@ npm start
 ```bash
 cd Frontend
 npm install
-npx run dev
+npm run dev
 ```
